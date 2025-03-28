@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: network-slicing
+spec:
+  hosts:
+  - "5g-slice.example.com"
+  http:
+  - match:
+    - uri:
+        prefix: "/slice1"
+    route:
+    - destination:
+        host: slice1-service
